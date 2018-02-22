@@ -20,18 +20,31 @@ const NotFoundPage = () => (
   </div>
 );
 
+const Header = () => (
+  <header>
+    <h1>Expensify</h1>
+    <Link to="/">Dashboard</Link>
+    <Link to="/create">Create Expense</Link>
+    <Link to="/edit">Edit Expense</Link>
+    <Link to="/help">Help</Link>
+  </header>
+);
+
 // everything inside of <BrowserRouter /> must be inside a container
 // <Switch /> looks from top to bottom until if finds a match,
 // with no path prop, NotFoundPage will always be a match
 const routes = (
   <BrowserRouter>
-    <Switch>
-      <Route path="/" component={ExpenseDashboardPage} exact={true} />
-      <Route path="/create" component={AddExpensePage} />
-      <Route path="/edit" component={EditExpensePage} />
-      <Route path="/help" component={HelpPage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <div>
+      <Header />
+      <Switch>
+        <Route path="/" component={ExpenseDashboardPage} exact={true} />
+        <Route path="/create" component={AddExpensePage} />
+        <Route path="/edit" component={EditExpensePage} />
+        <Route path="/help" component={HelpPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
   </BrowserRouter>
 );
 
