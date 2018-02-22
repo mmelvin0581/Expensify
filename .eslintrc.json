@@ -5,5 +5,13 @@
         "react",
         "jsx-a11y",
         "import"
+    ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "html",
+            "autoFix": true
+        }
     ]
 }
