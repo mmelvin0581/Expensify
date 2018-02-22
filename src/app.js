@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 
@@ -14,7 +14,11 @@ const EditExpensePage = () => <div>This is from my edit expense component</div>;
 
 const HelpPage = () => <div>This is from my help component</div>;
 
-const NotFoundPage = () => <div>404!</div>;
+const NotFoundPage = () => (
+  <div>
+    404 - <Link to="/">Go Home</Link>
+  </div>
+);
 
 // everything inside of <BrowserRouter /> must be inside a container
 // <Switch /> looks from top to bottom until if finds a match,
