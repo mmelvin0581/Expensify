@@ -14,8 +14,7 @@ module.exports = {
         docs: {
             description: "enforce sorted import declarations within modules",
             category: "ECMAScript 6",
-            recommended: false,
-            url: "https://eslint.org/docs/rules/sort-imports"
+            recommended: false
         },
 
         schema: [
@@ -114,11 +113,9 @@ module.exports = {
                         currentLocalMemberName = currentLocalMemberName && currentLocalMemberName.toLowerCase();
                     }
 
-                    /*
-                     * When the current declaration uses a different member syntax,
-                     * then check if the ordering is correct.
-                     * Otherwise, make a default string compare (like rule sort-vars to be consistent) of the first used local member name.
-                     */
+                    // When the current declaration uses a different member syntax,
+                    // then check if the ordering is correct.
+                    // Otherwise, make a default string compare (like rule sort-vars to be consistent) of the first used local member name.
                     if (currentMemberSyntaxGroupIndex !== previousMemberSyntaxGroupIndex) {
                         if (currentMemberSyntaxGroupIndex < previousMemberSyntaxGroupIndex) {
                             context.report({
@@ -154,8 +151,7 @@ module.exports = {
                             message: "Member '{{memberName}}' of the import declaration should be sorted alphabetically.",
                             data: { memberName: importSpecifiers[firstUnsortedIndex].local.name },
                             fix(fixer) {
-                                if (importSpecifiers.some(specifier =>
-                                    sourceCode.getCommentsBefore(specifier).length || sourceCode.getCommentsAfter(specifier).length)) {
+                                if (importSpecifiers.some(specifier => sourceCode.getCommentsBefore(specifier).length || sourceCode.getCommentsAfter(specifier).length)) {
 
                                     // If there are comments in the ImportSpecifier list, don't rearrange the specifiers.
                                     return null;
