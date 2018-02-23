@@ -21,7 +21,11 @@ const resetCount = () => ({
   type: "RESET"
 });
 
-const store = createStore((state = { count: 0 }, action) => {
+// Reducers - determines what to do after an action
+// 1. pure function - output only determined by input - state and action
+// 2. never change state or action
+
+const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case "INCREMENT":
       return {
@@ -42,7 +46,9 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state;
   }
-});
+};
+
+const store = createStore(countReducer);
 
 store.subscribe(() => {
   console.log(store.getState());
