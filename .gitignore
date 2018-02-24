@@ -56,6 +56,7 @@ typings/
 
 # eslint config
 .eslintrc.json
+.eslintrc
 
 # Optional REPL history
 .node_repl_history
