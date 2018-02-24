@@ -21,9 +21,9 @@ const resetCount = () => ({
   type: 'RESET'
 });
 
-// Reducers - determines what to do after an action
-// 1. pure function - output only determined by input - state and action
-// 2. never change state or action
+// Reducers
+// 1. Reducers are pure functions
+// 2. Never change state or actiton
 
 const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
@@ -35,13 +35,13 @@ const countReducer = (state = { count: 0 }, action) => {
       return {
         count: state.count - action.decrementBy
       };
-    case 'RESET':
-      return {
-        count: 0
-      };
     case 'SET':
       return {
         count: action.count
+      };
+    case 'RESET':
+      return {
+        count: 0
       };
     default:
       return state;
@@ -50,11 +50,11 @@ const countReducer = (state = { count: 0 }, action) => {
 
 const store = createStore(countReducer);
 
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
 });
 
-store.dispatch(incrementCount({ incrementBy: 5 }));
+store.dispatch(incrementCount({ incrementBy: 5 }))
 
 store.dispatch(incrementCount());
 
