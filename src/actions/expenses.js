@@ -1,14 +1,16 @@
 import uuid from 'uuid';
 
+/** Expenses Actions
+ *
+ * Actions are payloads of information that send data from your
+ * application to your store. They are the only source of information
+ * for the store. You send them to the store using store.dispatch().
+ */
+
 // ADD_EXPENSE
-export const addExpense = (
-  {
-    description = '',
-    note = '',
-    amount = 0,
-    createdAt = 0
-  } = {}
-) => ({
+export const addExpense = ({
+ description = '', note = '', amount = 0, createdAt = 0
+} = {}) => ({
   type: 'ADD_EXPENSE',
   expense: {
     id: uuid(),
