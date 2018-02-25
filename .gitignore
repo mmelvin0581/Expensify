@@ -6,6 +6,9 @@
 !.vscode/extensions.json
 .history
 
+### WebStorm ###
+.idea/*
+
 ### Node ###
 # Logs
 logs
