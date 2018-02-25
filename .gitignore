@@ -9,6 +9,9 @@
 ### WebStorm ###
 .idea/*
 
+### Misc ###
+.DS_Store
+
 ### Node ###
 # Logs
 logs
