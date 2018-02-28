@@ -13,22 +13,4 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-database.ref().set({
-  name: 'Michael Melvin',
-  age: 31,
-  isSingle: false,
-  location: {
-    city: 'Statesboro',
-    country: 'United States'
-  }
-});
-
-// database.ref().set('This is my data.');
-
-database.ref('age').set(32);
-database.ref('location/city').set('Tampa');
-
-database.ref('attributes').set({
-  height: 74,
-  weight: 165
-});
+export { firebase, database as default };
