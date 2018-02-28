@@ -27,6 +27,7 @@ database.ref().set({
 
 database.ref('age').set(32);
 database.ref('location/city').set('Tampa');
+
 database.ref('attributes').set({
   height: 74,
   weight: 165
